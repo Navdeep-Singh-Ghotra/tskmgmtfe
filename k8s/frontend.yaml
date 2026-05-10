@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vite-react-app
+  name: reactapp
   namespace: dev
   labels:
-    app: vite-react-app
+    app: reactapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vite-react-app
+      app: reactapp
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: vite-react-app
+        app: reactapp
       annotations:
         # Add prometheus scraping if needed
         prometheus.io/scrape: "true"
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: vite-app
-        image: navdeepsinghghotra/tskmgmtfe:1
+        image: navdeepsinghghotra/tskmgmtfe:2
         imagePullPolicy: Always
         ports:
         - containerPort: 4173
@@ -69,12 +69,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vite-react-service
+  name: reactapp
   labels:
-    app: vite-react-app
+    app: reactapp
 spec:
   selector:
-    app: vite-react-app
+    app: reactapp
   ports:
   - port: 4173
     targetPort: 4173
