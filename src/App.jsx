@@ -7,6 +7,7 @@ import Landing from './components/layout/Landing';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
+import Dashboard from './components/dashboard/Dashboard';
 // Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Navbar />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </Provider>
